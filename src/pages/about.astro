@@ -11,7 +11,7 @@ const identity = {
 };
 const skills = ["HTML", "CSS", "JavaScript", "React", "Astro"];
 const happy = true;
-const finished = false;
+const finished = true;
 const goal = 3;
 
 const colorSkills = "blue";
@@ -23,7 +23,7 @@ const fontWeight = "bold";
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width" />
         <title>{pageTitle}</title>
-        <style define:vars={{ colorSkills, fontWeight }}>            
+        <style define:vars={{ colorSkills, fontWeight }}>
             .skill {
                 color: var(--colorSkills);
                 font-weight: var(--fontWeight);
@@ -71,13 +71,13 @@ const fontWeight = "bold";
             {happy && <p>¡Estoy feliz de aprender Astro!</p>}
 
             {finished && <p>¡He terminado este tutorial!</p>}
-
             {
-                goal === 3 ? (
-                    <p>Mi objetivo es terminar en 3 días.</p>
-                ) : (
-                    <p>Mi objetivo no son 3 días.</p>
-                )
+                !finished &&
+                    (goal === 3 ? (
+                        <p>Mi objetivo es terminar en 3 días.</p>
+                    ) : (
+                        <p>Mi objetivo no son 3 días.</p>
+                    ))
             }
         </BaseLayout>
     </body>
