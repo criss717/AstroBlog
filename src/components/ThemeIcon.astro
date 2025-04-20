@@ -40,7 +40,7 @@
     window.localStorage.setItem("theme", theme);
 
     const handleToggleClick = () => {
-        const element = document.getElementById("themeToggle");
+        const element = document.documentElement; // hace referencia al elemento html
         element.classList.toggle("dark");
 
         const isDark = element.classList.contains("dark");
