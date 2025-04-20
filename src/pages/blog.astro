@@ -1,0 +1,26 @@
+---
+import "../styles/global.css";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import BlogPost from "../components/BlogPost.astro";
+const pageTitle = "Blog de Criss";
+const allPosts= await Astro.glob("../pages/posts/*.md");
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Astro</title>
+  </head>
+  <body>
+    <BaseLayout pageTitle={pageTitle}>
+      <h1>Mi blog de aprendizaje sobre Astro</h1>
+      <p>
+        Aquí es donde publicaré acerca de mi viaje aprendiendo Astro./p>
+        <ul>
+          {allPosts.length && allPosts.map(post=><BlogPost pageTitle={post.frontmatter.title} url={post.url}/>) }       
+        </ul>
+      </p>
+    </BaseLayout>
+  </body>
+</html>
